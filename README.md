@@ -1,4 +1,4 @@
-# OAuth 2.0 with Spring Security Guide
+# Spring Security OAuth 2.0 Guide
 
 This example shows how to create a Authorization Server with Spring Security and OAuth 2.0.
 
