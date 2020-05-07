@@ -1,9 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.3.RELEASE'
+	id 'org.springframework.boot' version '2.2.7.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 }
-
-apply plugin: 'io.spring.dependency-management'
 
 group = 'com.okta.spring'
 version = '0.0.1-SNAPSHOT'
@@ -15,7 +14,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.security.oauth:spring-security-oauth2:2.3.3.RELEASE'
-	implementation 'org.glassfish.jaxb:jaxb-runtime'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.security.oauth:spring-security-oauth2:2.4.1.RELEASE'
+	runtimeOnly 'org.glassfish.jaxb:jaxb-runtime'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
 }
