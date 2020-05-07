@@ -18,5 +18,4 @@ public class WebController {
     public String index(Model model, Principal principal) {
         return "index";
     }
-
 }

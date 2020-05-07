@@ -1,8 +1,9 @@
 server:
   port: 8082
-  session:
-    cookie:
-      name: UISESSION
+  servlet:
+    session:
+      cookie:
+        name: UISESSION
 spring:
   thymeleaf:
     cache: false
@@ -16,7 +17,7 @@ spring:
             client-name: Auth Server
             scope: user_info
             provider: custom-provider
-            redirect-uri-template: http://localhost:8082/login/oauth2/code/
+            redirect-uri: http://localhost:8082/login/oauth2/code/
             client-authentication-method: basic
             authorization-grant-type: authorization_code
         provider:

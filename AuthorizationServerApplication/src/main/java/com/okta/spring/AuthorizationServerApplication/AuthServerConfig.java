@@ -1,9 +1,7 @@
 package com.okta.spring.AuthorizationServerApplication;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -14,14 +12,13 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 @EnableAuthorizationServer
 public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
+    private final PasswordEncoder passwordEncoder;
     @Value("${user.oauth.clientId}")
     private String ClientID;
     @Value("${user.oauth.clientSecret}")
     private String ClientSecret;
     @Value("${user.oauth.redirectUris}")
     private String RedirectURLs;
-
-    private final PasswordEncoder passwordEncoder;
 
     public AuthServerConfig(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
